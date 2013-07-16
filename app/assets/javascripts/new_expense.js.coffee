@@ -3,7 +3,8 @@ loadUsers = ->
   $column = $(".user-column")
 
   $.ajax {
-    url: "/groups/#{gid}.json?exclude_current=true",
+    url: "/groups/#{gid}.json",
+    data: { exclude_current: true },
     success: (json) ->
       $column.empty()
       for user in json.group.users
